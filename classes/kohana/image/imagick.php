@@ -70,7 +70,8 @@ class Kohana_Image_Imagick extends Image {
 
 	protected function _do_resize($width, $height)
 	{
-		if ($this->im->scaleImage($width, $height))
+
+		if ($this->im->resizeImage($width, $height, imagick::FILTER_LANCZOS, 1))
 		{
 			// Reset the width and height
 			$this->width = $this->im->getImageWidth();
